@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:isolate';
 import 'package:archive/archive.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
@@ -160,21 +161,24 @@ class ModelManager {
   }
 
   Future<void> _extractTarBz2FromFile(File tarBz2File, String targetDir) async {
-    final bytes = await tarBz2File.readAsBytes(); // Devuelve Uint8List (1 byte por elemento)
-    final bz2Decoded = BZip2Decoder().decodeBytes(bytes);
-    final archive = TarDecoder().decodeBytes(bz2Decoded);
+    final filePath = tarBz2File.path;
+    await Isolate.run(() {
+      final bytes = File(filePath).readAsBytesSync();
+      final bz2Decoded = BZip2Decoder().decodeBytes(bytes);
+      final archive = TarDecoder().decodeBytes(bz2Decoded);
 
-    for (final file in archive) {
-      if (!file.isFile) continue;
+      for (final file in archive) {
+        if (!file.isFile) continue;
 
-      String relativePath = file.name;
-      if (relativePath.startsWith('sherpa-onnx-whisper-base/')) {
-        relativePath = relativePath.replaceFirst('sherpa-onnx-whisper-base/', '');
+        String relativePath = file.name;
+        if (relativePath.startsWith('sherpa-onnx-whisper-base/')) {
+          relativePath = relativePath.replaceFirst('sherpa-onnx-whisper-base/', '');
+        }
+
+        final outFile = File('$targetDir/$relativePath');
+        outFile.parent.createSync(recursive: true);
+        outFile.writeAsBytesSync(file.content as List<int>);
       }
-
-      final outFile = File('$targetDir/$relativePath');
-      await outFile.parent.create(recursive: true);
-      await outFile.writeAsBytes(file.content as List<int>);
-    }
+    });
   }
 }

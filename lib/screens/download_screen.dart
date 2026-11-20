@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 import '../services/model_manager.dart';
+
 
 class DownloadScreen extends StatefulWidget {
   final ModelManager modelManager;
@@ -27,6 +29,8 @@ class _DownloadScreenState extends State<DownloadScreen> {
       _downloadStatus = 'Preparando descarga...';
     });
 
+    await WakelockPlus.enable(); // Mantiene la pantalla despierta
+
     try {
       await widget.modelManager.downloadAllModels(
         onProgress: (progress, status) {
@@ -46,8 +50,11 @@ class _DownloadScreenState extends State<DownloadScreen> {
         _isDownloading = false;
         _downloadStatus = 'Error: $e';
       });
+    } finally {
+      await WakelockPlus.disable(); // Libera la pantalla al terminar o fallar
     }
   }
+
 
   @override
   Widget build(BuildContext context) {

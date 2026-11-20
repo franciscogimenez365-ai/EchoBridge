@@ -5,7 +5,7 @@
 
   <p>
     <a href="https://github.com/franciscogimenez365-ai/EchoBridge/releases/latest">
-      <img src="https://img.shields.io/badge/Descargar_APK-v1.0.0-00E676?style=for-the-badge&logo=android&logoColor=black" alt="Descargar APK v1.0.0" />
+      <img src="https://img.shields.io/badge/Descargar_APK-v1.0.1-00E676?style=for-the-badge&logo=android&logoColor=black" alt="Descargar APK v1.0.1" />
     </a>
     <a href="#license">
       <img src="https://img.shields.io/badge/Licencia-MIT-FF6D00?style=for-the-badge" alt="Licencia MIT" />
@@ -14,6 +14,11 @@
 </div>
 
 ---
+## Changelog
+
+### v1.0.1
+* Kept screen awake during initial model downloads (`wakelock_plus`) to prevent OS network suspension.
+* Moved `.tar.bz2` model extraction to a background `Isolate` to eliminate UI freezes (ANR) on mid-range devices.
 
 ## About EchoBridge
 
