@@ -40,7 +40,7 @@ Unlike traditional translators that stream your voice to cloud servers, EchoBrid
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com
+   git clone https://github.com/franciscogimenez365-ai/EchoBridge
    cd echo_bridge
    ```
 2. Install Flutter dependencies:
