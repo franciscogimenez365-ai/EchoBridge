@@ -11,7 +11,17 @@
       <img src="https://img.shields.io/badge/Licencia-MIT-FF6D00?style=for-the-badge" alt="Licencia MIT" />
     </a>
   </p>
+
+  <p>
+    <a href="https://ko-fi.com/fenork" target="_blank">
+      <img src="https://img.shields.io/badge/Ko--fi-Support%20in%20USD-FF5E5B?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Support on Ko-fi" />
+    </a>
+    <a href="https://cafecito.app/fenork" target="_blank">
+      <img src="https://img.shields.io/badge/Cafecito-Invitame%20un%20café-00A8E8?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Invitame un café en Cafecito" />
+    </a>
+  </p>
 </div>
+
 
 ---
 ## Changelog
@@ -73,3 +83,19 @@ EchoBridge is built on top of incredible open-source projects and openly license
 ## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+---
+
+## ☕ Support the Project
+
+**EchoBridge** is 100% free, open-source, and runs completely offline without subscriptions or data tracking. I build these tools out of pure passion, and every contribution directly buys me more time to optimize local neural models, add new languages, and keep the project actively maintained.
+
+If EchoBridge was useful to you, consider supporting its development:
+
+<p>
+    <a href="https://ko-fi.com/fenork" target="_blank">
+      <img src="https://img.shields.io/badge/Ko--fi-Support%20in%20USD-FF5E5B?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Support on Ko-fi" />
+    </a>
+    <a href="https://cafecito.app/fenork" target="_blank">
+      <img src="https://img.shields.io/badge/Cafecito-Invitame%20un%20café-00A8E8?style=for-the-badge&logo=buy-me-a-coffee&logoColor=white" alt="Invitame un café en Cafecito" />
+</p>
+
